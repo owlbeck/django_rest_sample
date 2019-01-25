@@ -4,6 +4,11 @@ class User(models.Model):
     name = models.CharField(max_length=32)
     mail = models.EmailField()
 
+    def __repr__(self):
+        # 主キーとnameを表示させる
+        return "{}: {}".format(self.pk, self.name)
+
+    __str__ = __repr__
 
 class Entry(models.Model):
     STATUS_DRAFT = "draft"
